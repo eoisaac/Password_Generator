@@ -28,20 +28,48 @@ botaoMenos.addEventListener('click', () => {
 
 const displaySenha = document.querySelector('#input-senha');
 //Gerar a senha: 
+
+function geraNumeroAleatorio(max, min){
+
+	let valorAleatorio = Math.round(Math.random() * (max - min) + min);
+
+	return valorAleatorio;
+}
+
 function geraSenha(tamanho = 15){
 	
-	const maiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';//26
-	const minusculas = 'abcdefghijklmnopqrstuvwxyz'; //26
-	const numeros = '0123456789'; //10
-	const simbolos = '!@#$%&*()_-=+'; //13
-	
-	let senha = [];
+	const caracteres = [
+		'ABCDEFGHIJKLMNOPQRSTUVWXYZ', // 26
+		'abcdefghijklmnopqrstuvwxyz', // 26
+		'0123456789', // 10
+		'!@#$%&*()_-=+' // 13
+	];
 
-	//https://www.random.org/integers/
-	for(let i = 0; i < tamanho; i++){
-			let aleatorio = Math.round(Math.random() * ((maiusculas.length - 1) - 0)) ;
+	const senha = [];
 
-			senha.push(maiusculas[aleatorio]);
+	for(let tipo = 0; tipo < tamanho; tipo++){
+
+		let tipoDecaractere = geraNumeroAleatorio(3, 0);
+
+		if(tipoDecaractere == 0){
+			let maiusculas = geraNumeroAleatorio(caracteres[0].length, 0);
+			senha.push(caracteres[0][maiusculas]);
+		}
+
+		if(tipoDecaractere == 1){
+			let minusculas = geraNumeroAleatorio(caracteres[1].length, 0);
+			senha.push(caracteres[1][minusculas]);
+		}
+
+		if(tipoDecaractere == 2){
+			let numeros = geraNumeroAleatorio(caracteres[2].length, 0);
+			senha.push(caracteres[2][numeros]);
+		}
+
+		if(tipoDecaractere == 3){
+			let simbolos = geraNumeroAleatorio(caracteres[3].length, 0);
+			senha.push(caracteres[3][simbolos]);
+		}
 	}
 
 	displaySenha.value = senha.join('');
