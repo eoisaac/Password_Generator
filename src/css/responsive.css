@@ -1,0 +1,10 @@
+/* @media (max-width: 321px) {
+	.main-container {
+		display: grid;
+		grid-template-columns: 1fr ; 
+		grid-template-rows: 10vh 40vh 40vh 10vh;
+		grid-template-areas: "header header"
+												 "image generator"
+												 "footer footer";
+	}
+} */

@@ -4,54 +4,88 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="/src/css/style.css">
+	<link rel="stylesheet" href="src/css/responsive.css">
+	<title>Gerador de senhas</title>
 </head>
 <body>
-		<h1>Gerador de senhas</h1>
-		<hr>
+	<main class="main-container">
+		<!-- Header -->
+		<header class="main-header">
 
-		<input type="text" name="" id="input-senha" style="width: 500px;" readonly>
+			<h1 id="salve">Gerador de senhas</h1>
 
-		<button id="botao-copiar">Copiar</button>
+		</header>
 
-		<br>
-		<br>
+		<!-- Imagem -->
 
-		Tamanho: <span id="tamanho-senha">15</span>
+		<div class="image-container">
 
-		<br>
-		<br>
+			<!-- <img src="src/img/MyPasswordUndraw.svg" alt=""> -->
 
-		<button id="botao-menos">-</button>
-
-		<input type="range" id="input-range" min="1" max="50" value="15">
-
-		<button id="botao-mais">+</button>
-
-		<br>
-		<br>
+		</div>
 		
-		<p>A seleção dos tipos de caractere ainda está em desenvolvimento...</p>
+		<!-- Gerador -->
 
-		<input type="checkbox" id="check-maiuscula">
-		<label for="check-maiuscula">ABC</label>
-		|
-		<input type="checkbox" id="check-minuscula">
-		<label for="check-minuscula">abc</label>
-		|
-		<input type="checkbox" id="check-numero">
-		<label for="check-numero">123</label>
-		|
-		<input type="checkbox" id="check-simbolo">
-		<label for="check-simbolo">$@#</label>
+		<div class="generator-container">
 
-		<br>
-		<br>
+			<div class="wrap-generator-items">
+				
+			<div class="wrap-input-copy">	
+				<input type="text" id="input-senha" class="input-box" readonly>
+				<a href="#" id="botao-copiar" class="input-button">
+					<img src="src/img/clipboardIcon.svg" alt="">
+				</a>
+			</div>
 
-		<button id="botao-gerar">Gerar</button>
+			<div class="wrap-password-size">
+				Tamanho: <span id="tamanho-senha">15</span>
 
-		<br>
-		<hr>
-	<script src="script.js"></script>
+				<div>
+					<button id="botao-menos">-</button>
+
+					<input type="range" id="input-range" min="1" max="50" value="15">
+
+					<button id="botao-mais">+</button>
+				</div>
+			</div>
+
+			<div id="wrap-checkboxes" class="wrap-checkboxes">
+				<span class="check-item">
+					<input type="checkbox" id="check-maiuscula" class="checkbox-caractere">
+					<label for="check-maiuscula">ABC</label>
+				</span>
+				
+				<span class="check-item">
+					<input type="checkbox" id="check-minuscula" class="checkbox-caractere">
+					<label for="check-minuscula">abc</label>
+				</span>
+
+				<span class="check-item">
+					<input type="checkbox" id="check-numero" class="checkbox-caractere">
+					<label for="check-numero">123</label>
+				</span>
+
+				<span class="check-item">
+					<input type="checkbox" id="check-simbolo" class="checkbox-caractere">
+					<label for="check-simbolo">$@#</label>
+				</span>
+			</div>
+			
+			<button id="botao-gerar">Gerar</button>
+
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+
+		<footer class="footer-container">
+
+		</footer>
+
+	</main>
+
+	<script src="src/js/script.js"></script>
 </body>
 </html>

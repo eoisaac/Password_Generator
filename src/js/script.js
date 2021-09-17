@@ -1,3 +1,4 @@
+//======= Manipulação de texto =======
 //Atualizar tamanho da senha:
 const inputRange = document.querySelector('#input-range');
 
@@ -6,12 +7,17 @@ const botaoMais = document.querySelector('#botao-mais');
 
 inputRange.addEventListener('input', atualizaTamanhoSenha);
 
+function zeroAEsquerda(value) {
+	return value < 10 ? `0${value}` : value;
+}
+
 function atualizaTamanhoSenha(){
 	let textoTamanho = document.querySelector('#tamanho-senha');
 
 	let tamanhoSenha = inputRange.value;
 
-	textoTamanho.innerHTML = tamanhoSenha;
+
+	textoTamanho.innerHTML = zeroAEsquerda(tamanhoSenha);
 
 	geraSenha(tamanhoSenha);
 }
@@ -27,8 +33,24 @@ botaoMenos.addEventListener('click', () => {
 });
 
 const displaySenha = document.querySelector('#input-senha');
-//Gerar a senha: 
 
+//======= Selecionando tipos de caractere =======
+
+const checkboxWraper = document.querySelector('#wrap-checkboxes');
+checkboxWraper.addEventListener('click', event => {
+
+	const element = event.target;
+	if(element.classList.contains('checkbox-caractere')) atualizaTamanhoSenha();
+	
+});
+
+const maiusculasCheckbox = document.querySelector('#check-maiuscula');
+const minusculasCheckbox = document.querySelector('#check-minuscula');
+const numerosCheckbox = document.querySelector('#check-numero');
+const simbolosCheckbox = document.querySelector('#check-simbolo');
+
+//======= Gerando a senha =======
+//Gera numero aleatório
 function geraNumeroAleatorio(max, min){
 
 	let valorAleatorio = Math.round(Math.random() * (max - min) + min);
@@ -36,6 +58,7 @@ function geraNumeroAleatorio(max, min){
 	return valorAleatorio;
 }
 
+//Gerar a senha: 
 function geraSenha(tamanho = 15){
 	
 	const caracteres = [
@@ -91,4 +114,3 @@ const botaoCopiar = document.querySelector('#botao-copiar');
 botaoCopiar.addEventListener('click', () => {
 	navigator.clipboard.writeText(displaySenha.value);
 });
-
