@@ -1,10 +1,16 @@
-/* @media (max-width: 321px) {
+@media (max-width: 800px) {
 	.main-container {
 		display: grid;
 		grid-template-columns: 1fr ; 
-		grid-template-rows: 10vh 40vh 40vh 10vh;
-		grid-template-areas: "header header"
-												 "image generator"
-												 "footer footer";
+		grid-template-rows: 10vh 50vh 30vh 10vh;
+		grid-template-areas: "header"
+												 "generator"
+												 "image"
+												 "footer ";
 	}
-} */
+
+	.image {
+		width: 55%;
+	}
+}
+

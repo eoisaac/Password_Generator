@@ -22,15 +22,15 @@ function atualizaTamanhoSenha(){
 	geraSenha(tamanhoSenha);
 }
 
-botaoMais.addEventListener('click', () => {
-	inputRange.value = Number(inputRange.value) + 1;
-	atualizaTamanhoSenha();
-});
+// botaoMais.addEventListener('click', () => {
+// 	inputRange.value = Number(inputRange.value) + 1;
+// 	atualizaTamanhoSenha();
+// });
 
-botaoMenos.addEventListener('click', () => {
-	inputRange.value = Number(inputRange.value) - 1;
-	atualizaTamanhoSenha();
-});
+// botaoMenos.addEventListener('click', () => {
+// 	inputRange.value = Number(inputRange.value) - 1;
+// 	atualizaTamanhoSenha();
+// });
 
 const displaySenha = document.querySelector('#input-senha');
 

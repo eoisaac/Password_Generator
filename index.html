@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/src/css/style.css">
+	<link rel="stylesheet" href="src/css/style.css">
 	<link rel="stylesheet" href="src/css/responsive.css">
 	<title>Gerador de senhas</title>
 </head>
@@ -21,7 +21,7 @@
 
 		<div class="image-container">
 
-			<!-- <img src="src/img/MyPasswordUndraw.svg" alt=""> -->
+			<img src="src/img/MyPasswordUndraw.svg" alt="" class="image">
 
 		</div>
 		
@@ -39,14 +39,18 @@
 			</div>
 
 			<div class="wrap-password-size">
-				Tamanho: <span id="tamanho-senha">15</span>
+				Tamanho: <span id="tamanho-senha" class="password-size-value">15</span>
 
 				<div>
-					<button id="botao-menos">-</button>
+					<!-- <button id="botao-menos" class="size-button">
+						-
+					</button> -->
 
-					<input type="range" id="input-range" min="1" max="50" value="15">
+					<input type="range" id="input-range" min="1" max="50" value="15" class="input-range">
 
-					<button id="botao-mais">+</button>
+					<!-- <button id="botao-mais" class="size-button">
+						+
+					</button> -->
 				</div>
 			</div>
 
@@ -55,7 +59,7 @@
 					<input type="checkbox" id="check-maiuscula" class="checkbox-caractere">
 					<label for="check-maiuscula">ABC</label>
 				</span>
-				
+		
 				<span class="check-item">
 					<input type="checkbox" id="check-minuscula" class="checkbox-caractere">
 					<label for="check-minuscula">abc</label>
@@ -72,7 +76,12 @@
 				</span>
 			</div>
 			
-			<button id="botao-gerar">Gerar</button>
+			<div class="wrap-generator-button">
+				<button id="botao-gerar" class="generator-button">
+					<img src="src/img/arrow-repeatIcon.svg" alt="">
+					Gerar
+				</button>
+			</div>
 
 			</div>
 
@@ -81,7 +90,23 @@
 		<!-- Footer -->
 
 		<footer class="footer-container">
+			<ul class="footer-list">
+				<li class="list-item"><a href="#">
+					<img src="src/img/twitterIcon.svg" alt="Twitter logo">
+				</a></li>
+				
+				<li class="list-item"><a href="#">
+					<img src="src/img/instagramIcon.svg" alt="Instagram logo">
+				</a></li>
 
+				<li class="list-item"><a href="#">
+					<img src="src/img/linkedinIcon.svg" alt="LinkedIn logo">
+				</a></li>
+
+				<li class="list-item"><a href="#">
+					<img src="src/img/githubIcon.svg" alt="GutHub logo">
+				</a></li>
+			</ul>
 		</footer>
 
 	</main>
