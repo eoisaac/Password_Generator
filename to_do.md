@@ -7,3 +7,4 @@
 
 
 //Só para configurar o Git 🤣
+//Configurando no ubuntu
