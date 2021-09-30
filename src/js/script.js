@@ -92,6 +92,6 @@ function generatePassword(upper, lower, number, symbol, size) {
 }
 
 const generateButton = document.querySelector('#generate-button');
-generateButton.addEventListener('click', getPasswordConfig);	
+generateButton.addEventListener('click', getPasswordConfig);
 
 getPasswordConfig();
