@@ -4,40 +4,88 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="src/style.css">
+	<script src="https://kit.fontawesome.com/079be52d01.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="src/css/style.css">
 	<title>Gerador de senhas</title>
 </head>
 <body>
 
-	<input type="text" id="password-display" class="password-display" readonly>
+	<div class="screen-container">
 
-	<button id="copy-password">Copiar</button>
+		<main class="generator-container">
 
-	<br>
-	<p>
-		Tamanho da senha: <span id="password-size-value">15</span>
-	</p>
-	<input type="range" id="password-size-input" min="1" max="50" value = "15">
-	
-	<br>
+			<header class="main-header elements-box">
+				<h1>Gerador de senhas</h1>
+			</header>
 
-	<div id="checkbox-wrap">
-		<input type="checkbox" id="upper-check" class="main-checkbox" checked>
-		<label for="">ABC</label>
-		|
-		<input type="checkbox" id="lower-check" class="main-checkbox"checked>
-		<label for="">abc</label>
-		|
-		<input type="checkbox" id="numbers-check" class="main-checkbox"checked>
-		<label for="">123</label>
-		|
-		<input type="checkbox" id="symbols-check" class="main-checkbox" >
-		<label for="">$@#</label>
+			<div>
+				<div class="display-copy-wrap elements-box">
+					<button id="copy-password" class="copy-button icons" title="Copiar">
+						<i class="fas fa-clipboard"></i>
+						<!-- <i class="fas fa-clipboard-check"></i> -> Copiado!  -->
+					</button>
+					<input type="text" id="password-display" class="password-display" readonly>
+				</div>
+
+				<div class="password-size-wrap elements-box">
+					<p class="elements-label">
+						Tamanho da senha: 
+					</p>
+					<div class="input-and-value">
+						<input type="range" id="password-size-input" class="password-size-input" min="1" max="50" value = "15">
+						<span id="password-size-value" class="password-size-value">15</span>
+					</div>
+				</div>
+				
+				<div>
+					<p class="elements-label">
+						Caracteres:
+					</p>
+					<div id="checkbox-wrap" class="checkbox-wrap elements-box">
+						<div class="checkbox-element">
+							<input type="checkbox" id="upper-check" class="main-checkbox" checked>
+							<label for="upper-check" >ABC</label>
+						</div>
+
+						<div class="checkbox-element">
+							<input type="checkbox" id="lower-check" class="main-checkbox" checked>
+							<label for="lower-check">abc</label>
+						</div>
+
+						<div class="checkbox-element">
+							<input type="checkbox" id="numbers-check" class="main-checkbox" checked>
+							<label for="numbers-check">123</label>
+						</div>
+
+						<div class="checkbox-element">
+							<input type="checkbox" id="symbols-check" class="main-checkbox" >
+							<label for="symbols-check">$@#</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="generator-button-wrap">
+					<button id="generate-button" class="generate-button elements-box">
+						<i class="fas fa-sync-alt"></i>
+						Gerar
+					</button>
+				</div>
+			</div>
+			<footer class="main-footer elements-box">
+				<ul class="footer-list">
+					<li><a href="https://twitter.com/_eoisaac" target="_blank" class="icons"> <i class="fab fa-twitter"></i> </a></li>
+					<li><a href="https://www.instagram.com/_eoisaac/" target="_blank" class="icons"> <i class="fab fa-instagram"></i> </a></li>
+					<li><a href="https://www.linkedin.com/in/eoisaac/" target="_blank" class="icons"> <i class="fab fa-linkedin"></i> </a></li>
+					<li><a href="https://github.com/eoisaac" target="_blank" class="icons"> <i class="fab fa-github"></i> </a></li>
+				</ul>
+				<p>
+					<span>&copy</span> Isaac | 2021
+				</p>
+			</footer>
+		</main>
 	</div>
-	<br>
-
-	<button id="generate-button" class="generate-button">Gerar</button>
 
 	<script src="src/js/script.js"></script>
+	
 </body>
 </html>

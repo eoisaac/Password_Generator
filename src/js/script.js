@@ -50,13 +50,6 @@ checkboxWrap.addEventListener('click', (event) => {
 
 function generatePassword(upper, lower, number, symbol, size) {
 
-	/* Try/catch para quando estiver sem check marcado -> mostrar no input "marque algm check
-		Botao de copiar
-		Estilo 
-		
-		Teste de força da senha???
-	*/
-
 	const charTypes = [];
 	const arrayPassword = [];
 	let randomIndex = 0;
