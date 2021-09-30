@@ -1,5 +1,20 @@
 const passwordDisplay = document.querySelector('#password-display');
 
+passwordDisplay.addEventListener('click', () => passwordDisplay.select());
+
+const copyPasswordButton = document.querySelector('#copy-password');
+
+copyPasswordButton.addEventListener('click', () => {
+	let password = passwordDisplay.value;
+	
+	copyPasswordButton.innerHTML = '<i class="fas fa-clipboard-check"></i>';
+	setTimeout(() => {
+		copyPasswordButton.innerHTML = '<i class="fas fa-clipboard"></i>';
+	}, 1500);
+
+	navigator.clipboard.writeText(password);
+});
+
 const passwordSizeValue = document.querySelector('#password-size-value');
 
 const upperCheckbox = document.querySelector('#upper-check');
@@ -78,3 +93,5 @@ function generatePassword(upper, lower, number, symbol, size) {
 
 const generateButton = document.querySelector('#generate-button');
 generateButton.addEventListener('click', getPasswordConfig);	
+
+getPasswordConfig();
