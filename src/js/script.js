@@ -79,14 +79,14 @@ function generatePassword(upper, lower, number, symbol, size) {
 		arrayPassword.push(charTypes[randomIndex]);
 	}
 
-	const generatedPassword = [];
+	let generatedPassword = [];
 
-	for(let i = 0; i < arrayPassword.length; i++){
-		if(arrayPassword[i] === 'upper') generatedPassword[i] = getRandomChar.randomUpper();
-		if(arrayPassword[i] === 'lower') generatedPassword[i] = getRandomChar.randomLower();
-		if(arrayPassword[i] === 'number') generatedPassword[i] = getRandomChar.randomNumber();
-		if(arrayPassword[i] === 'symbol') generatedPassword[i] = getRandomChar.randomSymbol();
-	}
+	generatedPassword = arrayPassword.map((value) => {
+		if(value === 'upper') return getRandomChar.randomUpper();
+		if(value === 'lower') return getRandomChar.randomLower();
+		if(value === 'number') return getRandomChar.randomNumber();
+		if(value === 'symbol') return getRandomChar.randomSymbol();
+	});
 
 	passwordDisplay.value = generatedPassword.join('');
 }
