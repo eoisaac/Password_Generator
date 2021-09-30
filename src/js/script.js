@@ -1,116 +1,87 @@
-//======= Manipulação de texto =======
-//Atualizar tamanho da senha:
-const inputRange = document.querySelector('#input-range');
+const passwordDisplay = document.querySelector('#password-display');
 
-const botaoMenos = document.querySelector('#botao-menos');
-const botaoMais = document.querySelector('#botao-mais');
+const passwordSizeValue = document.querySelector('#password-size-value');
 
-inputRange.addEventListener('input', atualizaTamanhoSenha);
+const upperCheckbox = document.querySelector('#upper-check');
+const lowerCheckbox = document.querySelector('#lower-check');
+const numbersCheckbox = document.querySelector('#numbers-check');
+const symbolsCheckbox = document.querySelector('#symbols-check');
 
-function zeroAEsquerda(value) {
+function leftZero(value) {
 	return value < 10 ? `0${value}` : value;
 }
 
-function atualizaTamanhoSenha(){
-	let textoTamanho = document.querySelector('#tamanho-senha');
+function getPasswordConfig() {
+	let size = Number(passwordSizeInput.value);
+	
+	passwordSizeValue.innerText = leftZero(size)
 
-	let tamanhoSenha = inputRange.value;
-
-
-	textoTamanho.innerHTML = zeroAEsquerda(tamanhoSenha);
-
-	geraSenha(tamanhoSenha);
+	generatePassword(upperCheckbox.checked, lowerCheckbox.checked,
+		 numbersCheckbox.checked, symbolsCheckbox.checked, size);
 }
 
-// botaoMais.addEventListener('click', () => {
-// 	inputRange.value = Number(inputRange.value) + 1;
-// 	atualizaTamanhoSenha();
-// });
+const passwordSizeInput = document.querySelector('#password-size-input');
+passwordSizeInput.addEventListener('input', getPasswordConfig);
 
-// botaoMenos.addEventListener('click', () => {
-// 	inputRange.value = Number(inputRange.value) - 1;
-// 	atualizaTamanhoSenha();
-// });
+// https://www.w3schools.com/html/html_charset.asp
+const getRandomChar = {
+	randomUpper() {
+		return String.fromCharCode((Math.random() * 26) + 65);
+	},
+	randomLower() {
+		return String.fromCharCode((Math.random() * 26) + 97);
+	},
+	randomNumber() {
+		return Math.floor(Math.random() * 10);
+		// return String.fromCharCode((Math.random() * 10) + 48);
+	},
+	randomSymbol() {
+		let symbols = '!@#$%&*/-=+(){}[]';
+		return symbols[Math.floor(Math.random() * symbols.length)];
+	}
+};
 
-const displaySenha = document.querySelector('#input-senha');
+const checkboxWrap = document.querySelector('#checkbox-wrap');
+checkboxWrap.addEventListener('click', (event) => {
 
-//======= Selecionando tipos de caractere =======
-
-const checkboxWraper = document.querySelector('#wrap-checkboxes');
-checkboxWraper.addEventListener('click', event => {
-
-	const element = event.target;
-	if(element.classList.contains('checkbox-caractere')) atualizaTamanhoSenha();
-	
+	let element = event.target;
+	if(element.classList.contains('main-checkbox')) getPasswordConfig();
 });
 
-const maiusculasCheckbox = document.querySelector('#check-maiuscula');
-const minusculasCheckbox = document.querySelector('#check-minuscula');
-const numerosCheckbox = document.querySelector('#check-numero');
-const simbolosCheckbox = document.querySelector('#check-simbolo');
+function generatePassword(upper, lower, number, symbol, size) {
 
-//======= Gerando a senha =======
-//Gera numero aleatório
-function geraNumeroAleatorio(max, min){
+	/* Try/catch para quando estiver sem check marcado -> mostrar no input "marque algm check
+		Botao de copiar
+		Estilo 
+		
+		Teste de força da senha???
+	*/
 
-	let valorAleatorio = Math.round(Math.random() * (max - min) + min);
+	const charTypes = [];
+	const arrayPassword = [];
+	let randomIndex = 0;
 
-	return valorAleatorio;
-}
+	if(upper) charTypes.push('upper');
+	if(lower) charTypes.push('lower');
+	if(number) charTypes.push('number');
+	if(symbol) charTypes.push('symbol');
 
-//Gerar a senha: 
-function geraSenha(tamanho = 15){
-	
-	const caracteres = [
-		'ABCDEFGHIJKLMNOPQRSTUVWXYZ', // 26
-		'abcdefghijklmnopqrstuvwxyz', // 26
-		'0123456789', // 10
-		'!@#$%&*()_-=+' // 13
-	];
-
-	const senha = [];
-
-	for(let tipo = 0; tipo < tamanho; tipo++){
-
-		let tipoDecaractere = geraNumeroAleatorio(3, 0);
-
-		if(tipoDecaractere == 0){
-			let maiusculas = geraNumeroAleatorio(caracteres[0].length, 0);
-			senha.push(caracteres[0][maiusculas]);
-		}
-
-		if(tipoDecaractere == 1){
-			let minusculas = geraNumeroAleatorio(caracteres[1].length, 0);
-			senha.push(caracteres[1][minusculas]);
-		}
-
-		if(tipoDecaractere == 2){
-			let numeros = geraNumeroAleatorio(caracteres[2].length, 0);
-			senha.push(caracteres[2][numeros]);
-		}
-
-		if(tipoDecaractere == 3){
-			let simbolos = geraNumeroAleatorio(caracteres[3].length, 0);
-			senha.push(caracteres[3][simbolos]);
-		}
+	for(let i = 0; i < size; i++) {
+		randomIndex = Math.floor(Math.random() * (charTypes.length - 0) + 0);
+		arrayPassword.push(charTypes[randomIndex]);
 	}
 
-	displaySenha.value = senha.join('');
+	const generatedPassword = [];
+
+	for(let i = 0; i < arrayPassword.length; i++){
+		if(arrayPassword[i] === 'upper') generatedPassword[i] = getRandomChar.randomUpper();
+		if(arrayPassword[i] === 'lower') generatedPassword[i] = getRandomChar.randomLower();
+		if(arrayPassword[i] === 'number') generatedPassword[i] = getRandomChar.randomNumber();
+		if(arrayPassword[i] === 'symbol') generatedPassword[i] = getRandomChar.randomSymbol();
+	}
+
+	passwordDisplay.value = generatedPassword.join('');
 }
 
-const botaoGeraSenha = document.querySelector('#botao-gerar');
-botaoGeraSenha.addEventListener('click', atualizaTamanhoSenha);
-
-
-//======= Manipulação de texto =======
-//Seleciona texto
-displaySenha.addEventListener('click', () => {
-	displaySenha.select();
-});
-
-//Copiar para área de transferência
-const botaoCopiar = document.querySelector('#botao-copiar');
-
-botaoCopiar.addEventListener('click', () => {
-	navigator.clipboard.writeText(displaySenha.value);
-});
+const generateButton = document.querySelector('#generate-button');
+generateButton.addEventListener('click', getPasswordConfig);	

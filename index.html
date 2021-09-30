@@ -4,112 +4,39 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="src/css/style.css">
-	<link rel="stylesheet" href="src/css/responsive.css">
+	<link rel="stylesheet" href="src/style.css">
 	<title>Gerador de senhas</title>
 </head>
 <body>
-	<main class="main-container">
-		<!-- Header -->
-		<header class="main-header">
 
-			<h1 id="salve">Gerador de senhas</h1>
+	<input type="text" id="password-display" class="password-display" readonly>
 
-		</header>
+	<button id="copy-password">Copiar</button>
 
-		<!-- Imagem -->
+	<br>
+	<p>
+		Tamanho da senha: <span id="password-size-value">15</span>
+	</p>
+	<input type="range" id="password-size-input" min="1" max="50" value = "15">
+	
+	<br>
 
-		<div class="image-container">
+	<div id="checkbox-wrap">
+		<input type="checkbox" id="upper-check" class="main-checkbox" checked>
+		<label for="">ABC</label>
+		|
+		<input type="checkbox" id="lower-check" class="main-checkbox"checked>
+		<label for="">abc</label>
+		|
+		<input type="checkbox" id="numbers-check" class="main-checkbox"checked>
+		<label for="">123</label>
+		|
+		<input type="checkbox" id="symbols-check" class="main-checkbox" >
+		<label for="">$@#</label>
+	</div>
+	<br>
 
-			<img src="src/img/MyPasswordUndraw.svg" alt="" class="image">
-
-		</div>
-		
-		<!-- Gerador -->
-
-		<div class="generator-container">
-
-			<div class="wrap-generator-items">
-				
-			<div class="wrap-input-copy">	
-				<input type="text" id="input-senha" class="input-box" readonly>
-				<a href="#" id="botao-copiar" class="input-button">
-					<img src="src/img/clipboardIcon.svg" alt="">
-				</a>
-			</div>
-
-			<div class="wrap-password-size">
-				Tamanho: <span id="tamanho-senha" class="password-size-value">15</span>
-
-				<div>
-					<!-- <button id="botao-menos" class="size-button">
-						-
-					</button> -->
-
-					<input type="range" id="input-range" min="1" max="50" value="15" class="input-range">
-
-					<!-- <button id="botao-mais" class="size-button">
-						+
-					</button> -->
-				</div>
-			</div>
-
-			<div id="wrap-checkboxes" class="wrap-checkboxes">
-				<span class="check-item">
-					<input type="checkbox" id="check-maiuscula" class="checkbox-caractere">
-					<label for="check-maiuscula">ABC</label>
-				</span>
-		
-				<span class="check-item">
-					<input type="checkbox" id="check-minuscula" class="checkbox-caractere">
-					<label for="check-minuscula">abc</label>
-				</span>
-
-				<span class="check-item">
-					<input type="checkbox" id="check-numero" class="checkbox-caractere">
-					<label for="check-numero">123</label>
-				</span>
-
-				<span class="check-item">
-					<input type="checkbox" id="check-simbolo" class="checkbox-caractere">
-					<label for="check-simbolo">$@#</label>
-				</span>
-			</div>
-			
-			<div class="wrap-generator-button">
-				<button id="botao-gerar" class="generator-button">
-					<img src="src/img/arrow-repeatIcon.svg" alt="">
-					Gerar
-				</button>
-			</div>
-
-			</div>
-
-		</div>
-
-		<!-- Footer -->
-
-		<footer class="footer-container">
-			<ul class="footer-list">
-				<li class="list-item"><a href="#">
-					<img src="src/img/twitterIcon.svg" alt="Twitter logo">
-				</a></li>
-				
-				<li class="list-item"><a href="#">
-					<img src="src/img/instagramIcon.svg" alt="Instagram logo">
-				</a></li>
-
-				<li class="list-item"><a href="#">
-					<img src="src/img/linkedinIcon.svg" alt="LinkedIn logo">
-				</a></li>
-
-				<li class="list-item"><a href="#">
-					<img src="src/img/githubIcon.svg" alt="GutHub logo">
-				</a></li>
-			</ul>
-		</footer>
-
-	</main>
+	<button id="generate-button" class="generate-button">Gerar</button>
 
 	<script src="src/js/script.js"></script>
 </body>
