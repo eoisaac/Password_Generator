@@ -21,24 +21,12 @@
 
 <h3 id="features"> Features: </h3>
 
-<ul>
-	<li>
-		<input type="checkbox" checked>
-		User can select the length of the password.
-	</li>
-	<li>
-		<input type="checkbox" checked>
-		User can select password character types.
-	</li>
-	<li>
-		<input type="checkbox" checked>
-		User can click a <b>Copy to clipboard</b> button which will save the password to the clipboard.
-	</li>
-	<li>
-		<input type="checkbox">
-		User can see the password strength.
-	</li>
-</ul>
+<!-- <ul> -->
+- [x] User can select the length of the password
+- [x] User can select password character types.
+- [x] User can click a <b>Copy to clipboard</b> button which will save the password to the clipboard.
+- [ ] User can see the password strength.
+<!-- </ul> -->
 
 <h6> 🚧  View password strength 👨‍💻 Under development...  🚧 </h6>
 
